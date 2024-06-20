@@ -160,7 +160,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 追加----------------------------------------------
 CSRF_TRUSTED_ORIGINS = [
-    'https://graduation-research-424201e4d017.herokuapp.com/',
+    'https://graduation-research-424201e4d017.herokuapp.com',
 ]
 # --------------------------------------------------
 
