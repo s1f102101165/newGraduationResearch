@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newGraduationResearch', # 追加
+    'channels', # 追加
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # 追加
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # 追加
 
 ROOT_URLCONF = 'config.urls'
 
@@ -116,10 +119,35 @@ USE_I18N = True
 USE_TZ = True
 
 
+# 追加----------------------------------------------
+import os
+
+# asgiアプリケーションの位置
+ASGI_APPLICATION = 'newGraduationResearch.asgi.application'
+
+# チャンネルレイヤーの設定
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [os.getenv('REDIS_URL')], # RedisのURLを環境変数から取得(localの場合は.envファイルから取得) 
+        },
+    },
+}
+# --------------------------------------------------
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# 追加----------------------------------------------
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+# --------------------------------------------------
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
