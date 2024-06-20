@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost', # 追加
     '127.0.0.1', # 追加
+    'herokuapp.com', # 追加
+    'graduation-research-424201e4d017.herokuapp.com/' # 追加
 ]
 
 
@@ -153,3 +155,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# 追加----------------------------------------------
+CSRF_TRUSTED_ORIGINS = [
+    'https://graduation-research-424201e4d017.herokuapp.com/',
+]
+# --------------------------------------------------
