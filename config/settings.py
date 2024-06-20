@@ -162,3 +162,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://graduation-research-424201e4d017.herokuapp.com/',
 ]
 # --------------------------------------------------
+
+
+#クッキーの設定
+CSRF_COOKIE_SECURE = True
