@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     'localhost', # 追加
     '127.0.0.1', # 追加
     'herokuapp.com', # 追加
-    'graduation-research-424201e4d017.herokuapp.com/', # 追加
+    'graduation-research-424201e4d017.herokuapp.com', # 追加
 ]
 
 
