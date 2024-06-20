@@ -15,7 +15,7 @@ import newGraduationResearch.routing
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', '<project_name>.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
